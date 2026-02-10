@@ -1,0 +1,54 @@
+http://localhost:8888/notebooks/bhaktiii.ipynb?
+
+
+
+🔹 Steps to Load a CSV File in Python
+
+
+1. Import pandas
+import pandas as pd
+
+
+2. Load the CSV
+df = pd.read_csv("your_file.csv")
+
+- Replace "your_file.csv" with the actual path to your file.
+- If the file is in the same folder as your script, just the filename is enough.
+- If it’s elsewhere, provide the full path (e.g., "C:/Users/AVCOE/Documents/data.csv").
+
+3. Inspect the Data
+print(df.head())   # Shows first 5 rows
+print(df.info())   # Summary of columns and data types
+print(df.shape)    # Rows and columns count
+
+
+🔹 Common Options You Might Need
+- Custom delimiter (like ; or \t):
+df = pd.read_csv("your_file.csv", delimiter=";")
+- Handle missing values:
+df = pd.read_csv("your_file.csv", na_values=["NA", "missing"])
+- Specify encoding (important for non-English text):
+df = pd.read_csv("your_file.csv", encoding="utf-8")
+- Load only specific columns:
+df = pd.read_csv("your_file.csv", usecols=["Column1", "Column2"])
+
+
+🔹 Example with Advertising Data
+Since you’re working on advertising analytics, suppose your CSV has columns like:
+Date, Campaign, Impressions, Clicks, Spend
+
+
+You can load and quickly check performance metrics:
+df = pd.read_csv("ads_data.csv")
+
+# Calculate CTR (Click-Through Rate)
+df["CTR"] = df["Clicks"] / df["Impressions"]
+
+# Calculate CPC (Cost Per Click)
+df["CPC"] = df["Spend"] / df["Clicks"]
+
+print(df.head())
+
+
+
+
